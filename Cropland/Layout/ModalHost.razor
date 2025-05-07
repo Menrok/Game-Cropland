@@ -1,0 +1,46 @@
+﻿@if (ModalService.IsFieldsOpen)
+{
+    <div class="modal-overlay" @onclick="ModalService.CloseAll">
+        <div class="modal-window" @onclick:stopPropagation>
+            <FieldsModal />
+        </div>
+    </div>
+}
+@if (ModalService.IsTreesOpen)
+{
+    <div class="modal-overlay" @onclick="ModalService.CloseAll">
+        <div class="modal-window" @onclick:stopPropagation>
+            <TreesModal />
+        </div>
+    </div>
+}
+@if (ModalService.IsAnimalsOpen)
+{
+    <div class="modal-overlay" @onclick="ModalService.CloseAll">
+        <div class="modal-window" @onclick:stopPropagation>
+            <AnimalsModal />
+        </div>
+    </div>
+}
+@if (ModalService.IsCraftingOpen)
+{
+    <div class="modal-overlay" @onclick="ModalService.CloseAll">
+        <div class="modal-window" @onclick:stopPropagation>
+            <CraftingModal />
+        </div>
+    </div>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        ModalService.OnModalChanged += StateHasChanged;
+        GameState.OnStateChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        ModalService.OnModalChanged -= StateHasChanged;
+        GameState.OnStateChanged -= StateHasChanged;
+    }
+}

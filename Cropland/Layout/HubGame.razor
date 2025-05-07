@@ -1,0 +1,11 @@
+﻿<div class="game-stats">
+    💰 @GameState.Player.Coins coins
+    🌱 Level @GameState.Player.Level
+    💧 Woda: @GameState.Player.WaterTank.CurrentAmount / @GameState.Player.WaterTank.Capacity
+</div>
+
+@code {
+    protected override void OnInitialized() => GameState.OnStateChanged += StateHasChanged;
+
+    public void Dispose() => GameState.OnStateChanged -= StateHasChanged;
+}

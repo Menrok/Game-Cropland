@@ -1,0 +1,11 @@
+﻿.game-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.game-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: 500;
+}
